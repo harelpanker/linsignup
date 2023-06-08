@@ -1,4 +1,4 @@
-console.log('Start');
+// console.log("Start");
 // const info_form = document.querySelector("#info_form");
 // const sign_form_hidden=document.querySelector('#sign_form_hidden')
 const submit_user_info = document.querySelector("#submit_user_info");
@@ -38,7 +38,8 @@ const calendly_element_hunter = document.querySelector(
   "#calendly_element_hunter"
 );
 
-const hunter_base = "https://calendly.com/lin-welcome-team/lin-medical-intake-appointment";
+const hunter_base =
+  "https://calendly.com/lin-welcome-team/lin-medical-intake-appointment";
 const normal_base = "https://calendly.com/lin-welcome-team/intake-consultation";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -673,7 +674,7 @@ const formSubmition = () => {
   data.flow = flow;
   data.gclid = gclid;
 
-  console.log(data);
+  // console.log(data);
 
   sign_loader.style.display = "flex";
   try {
@@ -694,7 +695,7 @@ const formSubmition = () => {
         sign_loader.style.display = "none";
       })
       .catch((err) => {
-        console.log("error 1:", err);
+        // console.log("error 1:", err);
         success_button.setAttribute("href", `https://app.lin.health/`);
 
         sign_loader.style.display = "none";
@@ -702,7 +703,7 @@ const formSubmition = () => {
   } catch (err) {
     // error
     success_button.setAttribute("href", `https://app.lin.health/`);
-    console.log("error 2:", err);
+    // console.log("error 2:", err);
 
     sign_loader.style.display = "none";
   }
