@@ -1,4 +1,4 @@
-// 1
+console.log('Start');
 // const info_form = document.querySelector("#info_form");
 // const sign_form_hidden=document.querySelector('#sign_form_hidden')
 const submit_user_info = document.querySelector("#submit_user_info");
