@@ -38,7 +38,7 @@ const calendly_element_hunter = document.querySelector(
   "#calendly_element_hunter"
 );
 
-const hunter_base = "https://calendly.com/hunter-yates/lin-intake-consultation";
+const hunter_base = "https://calendly.com/lin-welcome-team/lin-medical-intake-appointment";
 const normal_base = "https://calendly.com/lin-welcome-team/intake-consultation";
 
 document.addEventListener("DOMContentLoaded", () => {
