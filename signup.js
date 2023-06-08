@@ -1,3 +1,4 @@
+// console.log("Start");
 const signup_form = document.querySelector("#signup_form");
 const signup_progress_inner = document.querySelector(".progress--line-inner");
 const loader = document.querySelector(".sign--loader");
@@ -1030,7 +1031,7 @@ const formSubmition = () => {
         // console.log("responseData.calendar: ", responseData.calendar);
         if (responseData.calendar === "2") {
           calendly_base_url =
-            "https://calendly.com/hunter-yates/lin-intake-consultation";
+            "https://calendly.com/lin-welcome-team/lin-medical-intake-appointment";
           tab_insured_1.click();
           next_schedule_text.innerHTML = "Schedule intake appointment";
           watch_vid.style.display = "none";
