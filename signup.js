@@ -179,6 +179,8 @@ const moveToQ1 = () => {
   back_q1.style.display = "flex";
   tab_q1.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 10%))`;
+
+  // gtag("event", "signup_flow");
 };
 next_welcome.addEventListener("click", moveToQ1);
 
@@ -1012,7 +1014,7 @@ const formSubmition = () => {
     loader.style.display = "none";
     back_form.style.display = "none";
     signup_progress_inner.style.transform = `translateX(calc(-100% + 100%))`;
-    uet_report_conversion();
+    if (utm_source === "bing") uet_report_conversion();
   };
 
   try {
