@@ -180,7 +180,7 @@ const moveToQ1 = () => {
   tab_q1.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 10%))`;
 
-  // gtag("event", "signup_flow");
+  gtag("event", "signup_flow_welcome");
 };
 next_welcome.addEventListener("click", moveToQ1);
 
@@ -196,6 +196,8 @@ const moveToQ2 = () => {
   back_q2.style.display = "flex";
   tab_q2.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 20%))`;
+
+  gtag("event", "signup_flow_q1");
 };
 const backToWelcome = () => {
   if (window.history.length > 1) {
@@ -246,6 +248,8 @@ const moveToQ3 = () => {
   back_q3.style.display = "flex";
   tab_q3.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 30%))`;
+
+  gtag("event", "signup_flow_q2");
 };
 const backToQ1 = () => {
   back_q1.style.display = "flex";
@@ -297,6 +301,8 @@ const moveToQ4 = () => {
   back_q4.style.display = "flex";
   tab_q4.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 40%))`;
+
+  gtag("event", "signup_flow_q3");
 };
 const backToQ2 = () => {
   back_q2.style.display = "flex";
@@ -346,6 +352,8 @@ const moveToFit = () => {
   tab_fit.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 45%))`;
   time.innerText = "1 min";
+
+  gtag("event", "signup_flow_q4");
 };
 const backToQ3 = () => {
   back_q3.style.display = "flex";
@@ -399,6 +407,9 @@ const moveToForm = () => {
   back_form.style.display = "flex";
   tab_data.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 60%))`;
+
+  gtag("event", "signup_flow_fit_for_lin");
+
   setTimeout(() => {
     input_insurance.focus();
   }, 400);
@@ -661,25 +672,10 @@ const showProvider = () => {
     input_state.value.toLowerCase() === "colorado"
   ) {
     insurance_wrapper.style.display = "block";
-    // validate_insurance_field = true;
   } else {
     insurance_wrapper.style.display = "none";
-    // validate_insurance_field = false;
   }
 };
-// const hideProvider = () => {
-//   if (
-//     input_state.value.toLowerCase() !== "maine" ||
-//     input_state.value.toLowerCase() !== "texas" ||
-//     input_state.value.toLowerCase() !== "colorado"
-//   ) {
-//     insurance_wrapper.style.display = "none";
-//     // validate_insurance_field = false;
-//   } else {
-//     insurance_wrapper.style.display = "block";
-//     // validate_insurance_field = true;
-//   }
-// };
 
 function checkFocus(e) {
   var activeTextarea = document.activeElement.id;
@@ -889,6 +885,7 @@ const moveToAllSet = () => {
   back_coach.style.display = "none";
   tab_all_set.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 100%))`;
+  gtag("event", "signup_flow_schedule_btn");
 };
 
 next_schedule.addEventListener("click", () => {
@@ -1014,6 +1011,7 @@ const formSubmition = () => {
     loader.style.display = "none";
     back_form.style.display = "none";
     signup_progress_inner.style.transform = `translateX(calc(-100% + 100%))`;
+    gtag("event", "signup_flow_submit");
     if (utm_source === "bing") uet_report_conversion();
   };
 
@@ -1081,4 +1079,8 @@ next_insured_1.addEventListener("click", () => {
   content_not_insured.forEach((item) => {
     item.style.display = "none";
   });
+});
+
+next_to_app.addEventListener("click", () => {
+  gtag("event", "signup_flow_move_to_app");
 });
