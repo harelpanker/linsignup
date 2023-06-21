@@ -1006,40 +1006,39 @@ const formSubmition = () => {
     window.uetq = window.uetq || [];
     window.uetq.push("event", "signup", {});
   };
+// _tvq
+   var _tvq = window._tvq = window._tvq || [];
+    function _sendSignupEvent(userId) {
+        var session = {
+            'user': userId
+        };
+        var actionname = 'signup';
+        var action = {
+            'rev': '',
+            'prod': '',
+            'id': userId,
+            'promo': ''
+        };
 
-  var _tvq = (window._tvq = window._tvq || []);
-  function _sendSignupEvent(userId) {
-    var session = {
-      user: userId
+        var u = (("https:" == document.location.protocol) ? "https://collector-25217.tvsquared.com/" : "http://collector-25217.tvsquared.com/");
+        _tvq.push(['setSiteId', "TV-7245728127-1"]);
+        _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+        _tvq.push([function() {
+            this.setCustomVariable(5, 'session', JSON2.stringify(session), 'visit')
+        }]);
+        _tvq.push([function() {
+            this.setCustomVariable(5, actionname, JSON2.stringify(action), 'page')
+        }]);
+        _tvq.push(['trackPageView']);
+        var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.defer = true;
+        g.async = true;
+        g.src = u + 'tv2track.js';
+        s.parentNode.insertBefore(g, s);
     };
-    var actionname = "signup";
-    var action = {};
-    var u =
-      "https:" == document.location.protocol
-        ? "https://collector-25217.tvsquared.com/"
-        : "http://collector-25217.tvsquared.com/";
-    _tvq.push(["setSiteId", "TV-7245728127-1"]);
-    _tvq.push(["setTrackerUrl", u + "tv2track.php"]);
-    _tvq.push([
-      function () {
-        this.setCustomVariable(5, "session", JSON2.stringify(session), "visit");
-      }
-    ]);
-    _tvq.push([
-      function () {
-        this.setCustomVariable(5, actionname, JSON2.stringify(action), "page");
-      }
-    ]);
-    _tvq.push(["trackPageView"]);
-    var d = document,
-      g = d.createElement("script"),
-      s = d.getElementsByTagName("script")[0];
-    g.type = "text/javascript";
-    g.defer = true;
-    g.async = true;
-    g.src = u + "tv2track.js";
-    s.parentNode.insertBefore(g, s);
-  }
 
   const moveNext = () => {
     loader.style.display = "none";
