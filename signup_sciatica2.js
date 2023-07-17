@@ -174,12 +174,14 @@ const q1_labels = document.querySelectorAll(
 );
 
 const moveToFyi = () => {
+  back_first.style.display = "none";
   back_fyi.style.display = "flex";
   tab_fyi.click();
   gtag("event", "signup_flow_fyi");
 };
 
 const moveToQ2 = () => {
+  back_first.style.display = "none";
   back_q2.style.display = "flex";
   tab_q2.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 20%))`;
