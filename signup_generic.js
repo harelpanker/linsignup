@@ -1,4 +1,4 @@
-//console.log("Start");
+// console.log("start");
 const signup_form = document.querySelector("#signup_form");
 const signup_progress_inner = document.querySelector(".progress--line-inner");
 const loader = document.querySelector(".sign--loader");
