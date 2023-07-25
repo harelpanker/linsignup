@@ -1,4 +1,4 @@
-console.log("Start");
+//console.log("Start");
 const signup_form = document.querySelector("#signup_form");
 const signup_progress_inner = document.querySelector(".progress--line-inner");
 const loader = document.querySelector(".sign--loader");
@@ -927,6 +927,7 @@ const urlParams = new URLSearchParams(queryString);
 const btn_src = urlParams.get("btn_src") || "";
 const mt = urlParams.get("mt") || "";
 const ref = urlParams.get("ref") || "";
+const utm_audience = urlParams.get("utm_audience") || "";
 const utm_source = urlParams.get("utm_source") || "";
 const utm_medium = urlParams.get("utm_medium") || "";
 const utm_content = urlParams.get("utm_content") || "";
@@ -952,6 +953,7 @@ const formSubmition = () => {
     flow: "",
     btn_src: "",
     ref: "",
+    utm_audience: "",
     utm_source: "",
     utm_medium: "",
     utm_content: "",
@@ -998,6 +1000,7 @@ const formSubmition = () => {
   data.btn_src = btn_src;
   data.mt = mt;
   data.ref = ref;
+  data.utm_audience = utm_audience;
   data.utm_source = utm_source;
   data.utm_medium = utm_medium;
   data.utm_content = utm_content;
