@@ -850,7 +850,7 @@ const moveToAllSet = () => {
   // back_coach.style.display = "none";
   tab_all_set.click();
   signup_progress_inner.style.transform = `translateX(calc(-100% + 100%))`;
-  // gtag("event", "signup_flow_schedule_btn");
+  gtag("event", "signup_flow_schedule_btn");
 };
 
 next_insured_schedule.addEventListener("click", () => {
@@ -968,7 +968,7 @@ const formSubmition = () => {
   data.flow = flow;
   data.payerDetails = input_insurance_hidden.value || "";
   data.gclid = gclid;
-  console.log("data: ", data);
+  // console.log("data: ", data);
 
   // loader start
   loader.style.display = "flex";
@@ -1055,8 +1055,8 @@ const formSubmition = () => {
         paymentUrl = responseData.redirectUrl;
         next_to_app.setAttribute("href", `${paymentUrl}`);
         next_insured_1.setAttribute("href", `${paymentUrl}`);
-        calendly_base_url;
-        console.log("responseData.calendar: ", responseData.calendar);
+        // calendly_base_url;
+        // console.log("responseData.calendar: ", responseData.calendar);
         if (responseData.calendar === "2") {
           calendly_base_url =
             "https://calendly.com/lin-welcome-team/lin-medical-intake-appointment";
