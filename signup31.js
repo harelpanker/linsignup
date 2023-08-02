@@ -1,8 +1,7 @@
-// console.log("start");
+// console.log("startnew");
 const signup_form = document.querySelector("#signup_form");
 const loader = document.querySelector(".sign--loader");
 
-const tab_state = document.querySelector('a[data-w-tab="tab_state"]');
 const tab_insured = document.querySelector('a[data-w-tab="tab_insured"]');
 const tab_not_insured = document.querySelector(
   'a[data-w-tab="tab_not_insured"]'
@@ -27,8 +26,8 @@ const input_insurance_hidden = document.querySelector(
 const error_first = document.querySelector(".c-error-message.is--first");
 const error_last = document.querySelector(".c-error-message.is--family");
 const error_email = document.querySelector(".c-error-message.is--email");
-const error_state = document.querySelector(".c-error-message.is--state");
-const error_insurance = document.querySelector(".c-error-message.is--provider");
+// const error_state = document.querySelector(".c-error-message.is--state");
+// const error_insurance = document.querySelector(".c-error-message.is--provider");
 
 const insurance_wrapper = document.querySelector("#insurance_wrapper");
 const search_insurance = document.getElementById("search_insurance");
@@ -447,13 +446,29 @@ input_state.addEventListener("input", (event) => {
 });
 
 next_state.addEventListener("click", () => {
-  insuranceOptionsWork.includes(input_insurance.value.toLowerCase()) &&
-  validateStateInput()
-    ? tab_insured.click()
-    : tab_not_insured.click();
+  if (
+    insuranceOptionsWork.includes(input_insurance.value.toLowerCase()) &&
+    validateStateInput()
+  ) {
+    tab_insured.click();
+    gtag("event", "insurance_accepted");
+    // console.log("insurance_accepted");
+  } else {
+    tab_not_insured.click();
+    if (validateStateInput()) {
+      // one of the 4 states
+      gtag("event", "insurance_state_notcovered");
+      // console.log("insurance_state_notcovered");
+    } else {
+      gtag("event", "insurance_nostate");
+      // console.log("insurance_nostate");
+    }
+  }
 });
 next_insured.addEventListener("click", () => {
   tab_data.click();
+  gtag("event", "insurance_confirmed");
+  // console.log("insurance_confirmed");
   setTimeout(() => {
     input_first_name.focus();
   }, 400);
@@ -582,8 +597,6 @@ let intervalga = setInterval(() => {
 }, 100);
 
 // submit
-let paymentUrl = "";
-
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
@@ -735,6 +748,9 @@ const formSubmition = () => {
 
   const moveNext = () => {
     loader.style.display = "none";
+    gtag("event", "insurance_submit");
+    // console.log("insurance_submit");
+
     vwoEvent();
     if (utm_source === "bing") uet_report_conversion();
   };
