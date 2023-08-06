@@ -1,4 +1,4 @@
-// console.log("Start");
+// console.log("aug 6 2023");
 const signup_form = document.querySelector("#signup_form");
 const signup_progress_inner = document.querySelector(".progress--line-inner");
 const loader = document.querySelector(".sign--loader");
@@ -1074,7 +1074,7 @@ const formSubmition = () => {
           window.location.href = paymentUrl || "https://app.lin.health/login";
         } else {
           calendly_base_url =
-            "https://calendly.com/lin-welcome-team/intake-consultation";
+            "https://calendly.com/lin-welcome-team/intake-consultation?utm_medium=intake&utm_term=wfs";
           tab_schedule.click();
           updateCalendlyURL();
           moveNext();
