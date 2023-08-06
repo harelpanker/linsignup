@@ -1,4 +1,4 @@
-console.log("Start");
+console.log("aug 6 2023");
 // const info_form = document.querySelector("#info_form");
 // const sign_form_hidden=document.querySelector('#sign_form_hidden')
 const submit_user_info = document.querySelector("#submit_user_info");
@@ -750,7 +750,7 @@ submit_user_info.addEventListener("click", (event) => {
     }
     checkState();
     createCalendly(
-      `${normal_base}?utm_medium=intake&phone_number=${phone.value}`,
+      `${normal_base}?utm_medium=intake&utm_term=f&phone_number=${phone.value}`,
       `${first_name.value} ${last_name.value}`,
       email.value,
       `${
@@ -758,7 +758,7 @@ submit_user_info.addEventListener("click", (event) => {
       }${phone.value.replace(/\D/g, "")}`
     );
     createCalendlyHunter(
-      `${hunter_base}?utm_medium=intake&phone_number=${phone.value}`,
+      `${hunter_base}?utm_medium=intake&utm_term=f&phone_number=${phone.value}`,
       `${first_name.value} ${last_name.value}`,
       email.value,
       `${
