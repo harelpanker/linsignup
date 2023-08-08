@@ -1,4 +1,4 @@
-// console.log("startnew");
+// console.log("8 aug 2023");
 const signup_form = document.querySelector("#signup_form");
 const loader = document.querySelector(".sign--loader");
 
@@ -94,15 +94,22 @@ let floridaOptions = [
   ["Other", "Other"],
   ["I don't have health insurance", "dont_have_florida"]
 ];
-let insuranceOptionsWork = [
-  "blue cross and blue shield of texas",
-  "unitedhealthcare",
-  "medicare",
-  "anthem blue cross and blue shield",
-  "harvard pilgrim health care",
+let insuranceOptionsWorkTexas = ["bcbs_tx", "unitedhc", "medicaretx", "cigna"];
+let insuranceOptionsWorkColorado = [
   "aetna",
+  "Anthemcolorado",
+  "unitedhc",
+  "medicareco",
   "cigna"
 ];
+let insuranceOptionsWorkMaine = [
+  "maineblueshield",
+  "harvardpilgrim",
+  "cigna",
+  "aetna"
+];
+let insuranceOptionsWorkFlorida = ["medicareflorida", "aetna"];
+
 const statesOptions = [
   "alabama",
   "alaska",
@@ -203,10 +210,10 @@ const validateEmail = () => {
 };
 const validateState = () => {
   if (
-    input_state.value === "maine" ||
-    input_state.value === "colorado" ||
-    input_state.value === "florida" ||
-    input_state.value === "texas"
+    input_state.value.toLowerCase() === "maine" ||
+    input_state.value.toLowerCase() === "colorado" ||
+    input_state.value.toLowerCase() === "florida" ||
+    input_state.value.toLowerCase() === "texas"
   ) {
     insurance_wrapper.style.display = "block";
   } else {
@@ -446,29 +453,89 @@ input_state.addEventListener("input", (event) => {
 });
 
 next_state.addEventListener("click", () => {
-  if (
-    insuranceOptionsWork.includes(input_insurance.value.toLowerCase()) &&
-    validateStateInput()
-  ) {
-    tab_insured.click();
-    gtag("event", "insurance_accepted");
-    // console.log("insurance_accepted");
-  } else {
-    tab_not_insured.click();
-    if (validateStateInput()) {
-      // one of the 4 states
-      gtag("event", "insurance_state_notcovered");
-      // console.log("insurance_state_notcovered");
+  if (input_state.value.toLowerCase() === "texas") {
+    if (
+      insuranceOptionsWorkTexas.includes(
+        input_insurance_hidden.value.toLowerCase()
+      )
+    ) {
+      tab_insured.click();
+      gtag("event", "insurance_accepted");
     } else {
-      gtag("event", "insurance_nostate");
-      // console.log("insurance_nostate");
+      tab_not_insured.click();
+      validateStateInput()
+        ? gtag("event", "insurance_state_notcovered")
+        : gtag("event", "insurance_nostate");
     }
   }
+  if (input_state.value.toLowerCase() === "maine") {
+    if (
+      insuranceOptionsWorkMaine.includes(
+        input_insurance_hidden.value.toLowerCase()
+      )
+    ) {
+      tab_insured.click();
+      gtag("event", "insurance_accepted");
+    } else {
+      tab_not_insured.click();
+      validateStateInput()
+        ? gtag("event", "insurance_state_notcovered")
+        : gtag("event", "insurance_nostate");
+    }
+  }
+  if (input_state.value.toLowerCase() === "colorado") {
+    if (
+      insuranceOptionsWorkColorado.includes(
+        input_insurance_hidden.value.toLowerCase()
+      )
+    ) {
+      tab_insured.click();
+      gtag("event", "insurance_accepted");
+    } else {
+      tab_not_insured.click();
+      validateStateInput()
+        ? gtag("event", "insurance_state_notcovered")
+        : gtag("event", "insurance_nostate");
+    }
+  }
+  if (input_state.value.toLowerCase() === "florida") {
+    if (
+      insuranceOptionsWorkFlorida.includes(
+        input_insurance_hidden.value.toLowerCase()
+      )
+    ) {
+      tab_insured.click();
+      gtag("event", "insurance_accepted");
+    } else {
+      tab_not_insured.click();
+      validateStateInput()
+        ? gtag("event", "insurance_state_notcovered")
+        : gtag("event", "insurance_nostate");
+    }
+  }
+
+  // if (
+  //   insuranceOptionsWork.includes(input_insurance.value.toLowerCase()) &&
+  //   validateStateInput()
+  // ) {
+  //   tab_insured.click();
+  //   gtag("event", "insurance_accepted");
+  //   // console.log("insurance_accepted");
+  // } else {
+  //   tab_not_insured.click();
+  //   if (validateStateInput()) {
+  //     // one of the 4 states
+  //     gtag("event", "insurance_state_notcovered");
+  //     // console.log("insurance_state_notcovered");
+  //   } else {
+  //     gtag("event", "insurance_nostate");
+  //     // console.log("insurance_nostate");
+  //   }
+  // }
 });
 next_insured.addEventListener("click", () => {
   tab_data.click();
   gtag("event", "insurance_confirmed");
-  // console.log("insurance_confirmed");
   setTimeout(() => {
     input_first_name.focus();
   }, 400);
