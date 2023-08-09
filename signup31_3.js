@@ -97,7 +97,7 @@ let floridaOptions = [
 let insuranceOptionsWorkTexas = ["bcbs_tx", "unitedhc", "medicaretx", "cigna"];
 let insuranceOptionsWorkColorado = [
   "aetna",
-  "Anthemcolorado",
+  "anthemcolorado",
   "unitedhc",
   "medicareco",
   "cigna"
